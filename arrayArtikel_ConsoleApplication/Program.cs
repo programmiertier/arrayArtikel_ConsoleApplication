@@ -9,8 +9,8 @@ namespace arrayArtikel_ConsoleApplication
 
         static void Main(string[] args)
         {
-            int zeile = 0;
-            int spalte = 0;
+            int zeile = 12;
+            int spalte = 35;
 
             SetCursorPosition(2, 9);
             ForegroundColor = Green;
@@ -60,22 +60,29 @@ namespace arrayArtikel_ConsoleApplication
                 meinkey = Console.ReadKey();
                 switch (meinkey.Key.ToString())
                 {
-                    case "LeftArrow": SetCursorPosition(spalte-1, zeile); break;
+                    case "LeftArrow": SetCursorPosition(spalte--, zeile); break;
                     case "RightArrow": SetCursorPosition(spalte++, zeile); break;
                     case "UpArrow": SetCursorPosition(spalte, zeile--); break;
                     case "DownArrow": SetCursorPosition(spalte, zeile++); break;
+                    case "D0":
+                    case "D1":
+                    case "D2":
+                    case "D3":
+                    case "D4":
+                    case "D5":
+                    case "D6":
+                    case "D7":
+                    case "D8":
+                    case "D9": WriteLine(meinkey.KeyChar); zeile++;break;
                     default: break;
                 }
                 SetCursorPosition(spalte, zeile);
                 
-
-                Write("-");
                 // WriteLine(spalte + "," + zeile);
 
                 // WriteLine(meinkey.Key.ToString());
             }
             while (meinkey.Key != ConsoleKey.Escape);
-
             ReadLine();
         }
     }
